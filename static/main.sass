@@ -1,0 +1,86 @@
+=respond-to($media)
+  @if $media == small
+    @media only screen and (max-width: 45rem)
+      @content
+  @else if $media == normal
+    @media only screen and (min-width: 45rem)
+      @content
+
+*
+  box-sizing: border-box
+body
+  padding: 0
+  margin: 0
+  font: 13px "Lucida Grande", Helvetica, Arial, sans-serif
+hr
+  display: block
+  box-sizing: content-box
+  height: 1px
+  border: none
+  border-bottom: 1px solid #ccc
+a
+  color: #00B7FF
+h1 small, h2 small
+  font-size: 0.8rem
+h1 a, h2 a
+  color: black
+  text-decoration: none
+p, ul
+  margin: 0.3rem 0
+
+.chat, .message-inner
+  width: 100%
+  max-width: 50rem
+  margin: 0 auto
+  padding: 0 1rem
+.chat
+  padding-bottom: 7rem
+.message-input-wrapper
+  position: fixed
+  bottom: 0
+  height: 6rem
+  width: 100%
+  border-top: 1px solid #ccc
+  background: #fff
+  background: rgba(255, 255, 255, 0.8)
+.message-input
+  width: 100%
+  height: 3rem
+  resize: none
+  outline: none
+  margin-top: 0.5rem
+  border-color: #ccc
+  &:focus
+    border-color: #000
+.message-button
+  width: 100%
+  margin: 0
+
+.from-text
+  font-weight: bold
+  color: #00B7FF
+.from-you
+  font-weight: bold
+  color: #ff2d44
+
+.debug
+  display: none
+  color: #959595
+.show-debug .debug
+  display: inherit
+.error
+  color: #a61f29
+  font-weight: bold
+
+.links line
+  stroke: #aaa
+.nodes
+  cursor: pointer
+.nodes circle
+  pointer-events: all
+  stroke: none
+  stroke-width: 40px
+.nodes text
+  font-size: 10px
+.nodes-you
+  fill: #ff2d44

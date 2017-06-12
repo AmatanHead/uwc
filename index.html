@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UWC</title>
+    <link rel="stylesheet" href="static/main.css">
+    <script src="contrib/d3.min.js"></script>
+    <script src="contrib/peerjs.min.js"></script>
+    <script src="contrib/autolinker.min.js"></script>
+    <script src="src/main.min.js"></script>
+</head>
+<body>
+<div class="chat" id="chat">
+    <h2>Chat</h2>
+    <hr>
+    <p><input id="peer-connect-input"  title="If of the peer you wantnna connect to"> <button id="peer-connect-button">Connect to a peer</button></p>
+    <hr>
+    <p>Hey there! Welcome to this little chat with a second system syndrome.</p>
+    <p>So, first, connect to some peers using the input above. Than you can send some messages or use special commands:</p>
+    <ul>
+        <li><span style="font-family: monospace; font-weight: bold">/set N</span> &dash; set a new value for the wave algorithm;</li>
+        <li><span style="font-family: monospace; font-weight: bold">/min</span> &dash; run the wave algorithm to get minimal value across all peers;</li>
+        <li><span style="font-family: monospace; font-weight: bold">/graph</span> &dash; collect and display current topology graph;</li>
+        <li><span style="font-family: monospace; font-weight: bold">/debug</span> &dash; toggle debug messages;</li>
+    </ul>
+    <hr>
+</div>
+<div class="message-input-wrapper">
+    <div class="message-inner">
+        <textarea id="message-input" class="message-input" title="Message text (ctrl+enter to send)"></textarea>
+        <button id="message-button" class="message-button" title="Send a message">-></button>
+    </div>
+</div>
+<script>
+    var chat = new Chat(d3.select('#message-input'), d3.select('#message-button'), d3.select('#chat'));
+    d3.select('#peer-connect-button').on('click', () => {
+        var node = d3.select('#peer-connect-input').node();
+        chat.connect(node.value);
+        node.value = '';
+    });
+</script>
+</body>
+</html>
