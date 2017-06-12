@@ -224,6 +224,7 @@ function Chat(messageInput, messageButton, messagesFeed) {
     self.peer = new Peer({
         key: apikey,
         debug: 3,
+        secure: true,
         logFunction: (a, b, c) => {
             self.displayDebug(`${a || ''} ${b || ''} ${c || ''}`);
         }
