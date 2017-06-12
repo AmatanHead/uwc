@@ -33,7 +33,7 @@
 </div>
 <script>
     var chat = new Chat(d3.select('#message-input'), d3.select('#message-button'), d3.select('#chat'));
-    d3.select('#peer-connect-button').on('click', () => {
+    d3.select('#peer-connect-button').on('click', function () {
         var node = d3.select('#peer-connect-input').node();
         chat.connect(node.value);
         node.value = '';
